@@ -1,12 +1,19 @@
 const express = require('express');
-const app = express();
+const cors = require('cors'); // ✅ CORS
 const path = require('path');
+const app = express();
 
-// Middleware
+// CORS middleware (should come early)
+app.use(cors({
+  origin: 'http://localhost:3000',
+  credentials: true
+}));
+
+// Body parsers
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// CSP Headers
+// CSP Header
 app.use((req, res, next) => {
   res.setHeader(
     'Content-Security-Policy',
@@ -24,7 +31,7 @@ app.get('/', (req, res) => {
 });
 
 // API routes
-app.use('/api', require('./routes'));
+app.use('/api', require('./routes')); // ✅ make sure this exists
 
 // Start server
 app.listen(3001, () => {
