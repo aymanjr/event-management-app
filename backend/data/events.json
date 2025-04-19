@@ -11,5 +11,18 @@
     "price": 50,
     "image": "",
     "createdAt": "2025-04-19T13:11:09.127Z"
+  },
+  {
+    "id": "evt-f1c3c0f6-dcb1-4db1-ae9e-ef8081d365c7",
+    "title": "Conference of AI",
+    "description": "AI conference",
+    "date": "2025-06-15",
+    "location": "Convention Center",
+    "organizerId": "usr-1745066613217",
+    "capacity": 50,
+    "isPrivate": true,
+    "price": 240,
+    "image": "",
+    "createdAt": "2025-04-19T13:31:56.973Z"
   }
 ]
