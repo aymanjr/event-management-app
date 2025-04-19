@@ -1,17 +1,33 @@
 const express = require('express');
-const bodyParser = require('body-parser');
-const routes = require('./routes');
-
 const app = express();
+const path = require('path');
 
 // Middleware
-app.use(bodyParser.json());
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
-// Routes
-app.use('/api', routes);
+// CSP Headers
+app.use((req, res, next) => {
+  res.setHeader(
+    'Content-Security-Policy',
+    "default-src 'self'; media-src 'self' data:;"
+  );
+  next();
+});
+
+// Static files
+app.use(express.static(path.join(__dirname, 'public')));
+
+// Root route
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+});
+
+// API routes
+app.use('/api', require('./routes'));
 
 // Start server
-const PORT = 3001;
-app.listen(PORT, () => {
-  console.log(`Server running on http://localhost:${PORT}`);
+app.listen(3001, () => {
+  console.log('Server running on http://localhost:3001');
+  console.log('API available at http://localhost:3001/api');
 });

@@ -1,1 +1,11 @@
-[]
+[
+  {
+    "id": "usr-1745066613217",
+    "email": "test@example.com",
+    "password": "simplepassword",
+    "firstName": "Test",
+    "lastName": "User",
+    "role": "participant",
+    "createdAt": "2025-04-19T12:43:33.217Z"
+  }
+]

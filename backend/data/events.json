@@ -1,1 +1,15 @@
-[]
+[
+  {
+    "id": "evt-1745068269126",
+    "title": "Tech Conference",
+    "description": "Annual technology conference",
+    "date": "2024-06-15",
+    "location": "Convention Center",
+    "organizerId": "usr-1745066613217",
+    "capacity": 100,
+    "isPrivate": false,
+    "price": 50,
+    "image": "",
+    "createdAt": "2025-04-19T13:11:09.127Z"
+  }
+]

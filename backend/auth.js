@@ -1,10 +1,9 @@
 const express = require('express');
 const router = express.Router();
-const { hashPassword } = require('../utils/auth');
-const { readData, writeData } = require('../utils/storage');
+const { readData, writeData } = require('./utils/storage');
 
-// Register
-router.post('/register', async (req, res) => {
+// Register endpoint (without hashing)
+router.post('/register', (req, res) => {
   const { email, password, firstName, lastName } = req.body;
   
   // Basic validation
@@ -19,11 +18,11 @@ router.post('/register', async (req, res) => {
     return res.status(400).json({ error: 'User already exists' });
   }
 
-  // Create new user
+  // Create new user (store plain password - NOT recommended for production)
   const newUser = {
     id: `usr-${Date.now()}`,
     email,
-    passwordHash: await hashPassword(password),
+    password, // Storing plain password
     firstName,
     lastName,
     role: 'participant',
@@ -36,6 +35,26 @@ router.post('/register', async (req, res) => {
   res.status(201).json({ 
     message: 'User registered successfully',
     userId: newUser.id
+  });
+});
+
+
+router.post('/login', (req, res) => {
+  const { email, password } = req.body;
+  const users = readData('users.json');
+  const user = users.find(u => u.email === email);
+  
+  if (!user || user.password !== password) {
+    return res.status(401).json({ error: 'Invalid credentials' });
+  }
+
+  res.json({ 
+    message: 'Login successful',
+    user: {
+      id: user.id,
+      email: user.email,
+      firstName: user.firstName
+    }
   });
 });
 
