@@ -1,22 +1,21 @@
-// storage.js
 const fs = require('fs');
 const path = require('path');
 
 const DATA_PATH = path.join(__dirname, '../data');
 
-// Rename functions to match what auth.js expects
-const readData = (file) => {
+const readData = (filename) => {
   try {
-    return JSON.parse(fs.readFileSync(`${DATA_PATH}/${file}`));
+    const filePath = path.join(DATA_PATH, filename);
+    if (!fs.existsSync(filePath)) {
+      console.error(`File not found: ${filePath}`);
+      return [];
+    }
+    const rawData = fs.readFileSync(filePath, 'utf-8');
+    return JSON.parse(rawData);
   } catch (err) {
-    if (err.code === 'ENOENT') return []; // Return empty array if file doesn't exist
-    throw err;
+    console.error(`Error reading ${filename}:`, err);
+    throw err; // Re-throw to be caught by the route handler
   }
 };
 
-const writeData = (file, data) => {
-  fs.writeFileSync(`${DATA_PATH}/${file}`, JSON.stringify(data, null, 2));
-};
-
-// Export with the expected names
-module.exports = { readData, writeData };
+module.exports = { readData };

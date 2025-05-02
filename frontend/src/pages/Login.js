@@ -14,6 +14,7 @@ import {
 export default function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
@@ -22,14 +23,11 @@ export default function Login() {
       const res = await api.post('/auth/login', { email, password });
       localStorage.setItem('token', res.data.token);
       localStorage.setItem('userId', res.data.user.id);
+      localStorage.setItem('userFirstName', res.data.user.firstName); // Store first name
       navigate('/dashboard');
     } catch (err) {
-      alert('Login failed');
+      setError(err.response?.data?.error || 'Login failed');
     }
-  };
-
-  const handleRegisterRedirect = () => {
-    navigate('/register');
   };
 
   return (
@@ -38,12 +36,16 @@ export default function Login() {
         <Typography variant="h5" align="center" gutterBottom>
           Login
         </Typography>
-        <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
+        {error && (
+          <Typography color="error" align="center" sx={{ mb: 2 }}>
+            {error}
+          </Typography>
+        )}
+        <Box component="form" onSubmit={handleSubmit} sx={{ mt: 1 }}>
           <TextField
             fullWidth
             label="Email"
             margin="normal"
-            variant="outlined"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             type="email"
@@ -53,7 +55,6 @@ export default function Login() {
             fullWidth
             label="Password"
             margin="normal"
-            variant="outlined"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             type="password"
@@ -62,16 +63,15 @@ export default function Login() {
           <Button
             fullWidth
             variant="contained"
-            color="primary"
             type="submit"
-            sx={{ mt: 3 }}
+            sx={{ mt: 3, mb: 2 }}
           >
             Login
           </Button>
-          <Typography align="center" sx={{ mt: 2 }}>
+          <Typography align="center">
             Don't have an account?{' '}
-            <Link component="button" onClick={handleRegisterRedirect}>
-              Register
+            <Link href="/register" underline="hover">
+              Register here
             </Link>
           </Typography>
         </Box>

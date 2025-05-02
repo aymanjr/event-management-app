@@ -4,7 +4,7 @@
     "eventId": "evt-1745068269126",
     "userId": "usr-1745066613217",
     "registeredAt": "2025-04-19T13:13:22.619Z",
-    "attended": false
+    "attended": true
   },
   {
     "id": "reg-5be424af-38c6-4080-b5d0-44df23b1a957",
@@ -12,7 +12,7 @@
     "userId": "usr-1745066613217",
     "ticketId": "TCK-evt-f1c3c0f6-dcb1-4db1-ae9e-ef8081d365c7-0-25ad878c",
     "registeredAt": "2025-04-19T13:33:01.032Z",
-    "attended": false
+    "attended": true
   },
   {
     "id": "reg-a775ee4b-0cfe-455b-9f5c-b0a9a06eef8a",
@@ -20,6 +20,6 @@
     "userId": "usr-1746198313520",
     "ticketId": "TCK-evt-f1c3c0f6-dcb1-4db1-ae9e-ef8081d365c7-1-4d0f9abf",
     "registeredAt": "2025-05-02T15:06:02.768Z",
-    "attended": false
+    "attended": true
   }
 ]
