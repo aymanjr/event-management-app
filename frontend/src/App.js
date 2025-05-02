@@ -3,6 +3,8 @@ import Home from './pages/Home';
 import Login from './pages/Login';
 import Dashboard from './pages/Dashboard';
 import EventDetail from './pages/EventDetail';
+import Register from './pages/Register'; // Add this import
+
 
 export function App() {
   return (
@@ -10,6 +12,7 @@ export function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} /> {/* Add this route */}
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/events/:id" element={<EventDetail />} />
       </Routes>

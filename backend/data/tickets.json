@@ -10,8 +10,10 @@
   {
     "eventId": "evt-f1c3c0f6-dcb1-4db1-ae9e-ef8081d365c7",
     "ticketId": "TCK-evt-f1c3c0f6-dcb1-4db1-ae9e-ef8081d365c7-1-4d0f9abf",
-    "isUsed": false,
-    "createdAt": "2025-04-19T13:31:56.984Z"
+    "isUsed": true,
+    "createdAt": "2025-04-19T13:31:56.984Z",
+    "userId": "usr-1746198313520",
+    "assignedAt": "2025-05-02T15:06:02.745Z"
   },
   {
     "eventId": "evt-f1c3c0f6-dcb1-4db1-ae9e-ef8081d365c7",

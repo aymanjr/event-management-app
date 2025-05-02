@@ -7,5 +7,14 @@
     "lastName": "User",
     "role": "participant",
     "createdAt": "2025-04-19T12:43:33.217Z"
+  },
+  {
+    "id": "usr-1746198313520",
+    "email": "admin@admin.com",
+    "password": "adminadmin",
+    "firstName": "admin",
+    "lastName": "admin",
+    "role": "participant",
+    "createdAt": "2025-05-02T15:05:13.520Z"
   }
 ]
