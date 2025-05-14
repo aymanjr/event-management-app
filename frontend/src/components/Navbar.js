@@ -163,27 +163,27 @@ const Navbar = () => {
                 color: 'inherit' 
               }}
             >
-              <img 
-                src={GoEventLogo} 
-                alt="GoEvent Logo" 
-                style={{ 
-                  height: '40px', 
-                  marginRight: '10px',
-                  filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.1))'
-                }} 
-              />
               <Typography 
-                variant="h6" 
+                variant="h5" 
                 component="div" 
                 sx={{ 
-                  fontWeight: 700, 
-                  display: { xs: 'none', sm: 'block' },
-                  background: 'linear-gradient(135deg, #1a237e 0%, #283593 100%)',
-                  WebkitBackgroundClip: 'text',
-                  WebkitTextFillColor: 'transparent',
+                  fontWeight: 800, 
+                  display: 'block',
+                  fontFamily: 'sans-serif',
+                  letterSpacing: '-0.5px',
+                  '& span:first-of-type': {
+                    color: '#4CAF50', // Green color for "Go"
+                  },
+                  '& span:last-of-type': {
+                    color: '#1A237E',  // Dark navy blue for "Event"
+                  },
+                  '&:hover': {
+                    opacity: 0.9,
+                  },
+                  transition: 'opacity 0.2s ease-in-out',
                 }}
               >
-                GoEvent
+                <span>Go</span><span>Event</span>
               </Typography>
             </Link>
           </Box>
