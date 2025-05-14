@@ -24,5 +24,18 @@
     "price": 240,
     "image": "",
     "createdAt": "2025-04-19T13:31:56.973Z"
+  },
+  {
+    "id": "evt-7504c040-4ff0-4d98-b152-5691be07ac10",
+    "title": "AI Tech Summit 2025",
+    "description": "Annual conference on AI advancements",
+    "date": "2025-06-15",
+    "location": "San Francisco Convention Center",
+    "organizerId": "usr-1745066613217",
+    "capacity": 200,
+    "isPrivate": false,
+    "price": 989,
+    "image": "https://example.com/ai-summit.jpg",
+    "createdAt": "2025-05-14T22:14:23.784Z"
   }
 ]

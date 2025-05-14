@@ -21,5 +21,21 @@
     "ticketId": "TCK-evt-f1c3c0f6-dcb1-4db1-ae9e-ef8081d365c7-1-4d0f9abf",
     "registeredAt": "2025-05-02T15:06:02.768Z",
     "attended": true
+  },
+  {
+    "id": "reg-27d42f48-d263-47fd-863d-62428f7d89cb",
+    "eventId": "evt-7504c040-4ff0-4d98-b152-5691be07ac10",
+    "userId": "usr-1746198313520",
+    "ticketId": "TCK-evt-7504c040-4ff0-4d98-b152-5691be07ac10-0-a5c0e0b7",
+    "registeredAt": "2025-05-14T22:19:05.464Z",
+    "attended": false
+  },
+  {
+    "id": "reg-d4e75176-559c-4123-b82b-5f2f2d67809c",
+    "eventId": "evt-7504c040-4ff0-4d98-b152-5691be07ac10",
+    "userId": "usr-1745066613217",
+    "ticketId": "TCK-evt-7504c040-4ff0-4d98-b152-5691be07ac10-1-3d59ce9e",
+    "registeredAt": "2025-05-14T22:20:43.457Z",
+    "attended": false
   }
 ]
