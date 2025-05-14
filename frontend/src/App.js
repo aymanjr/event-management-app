@@ -5,6 +5,7 @@ import Dashboard from './pages/Dashboard';
 import EventDetail from './pages/EventDetail';
 import Register from './pages/Register';
 import Navbar from './components/Navbar';
+import Event from './pages/Events';
 
 function AppWrapper() {
   const location = useLocation();
@@ -19,6 +20,8 @@ function AppWrapper() {
         <Route path="/register" element={<Register />} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/events/:id" element={<EventDetail />} />
+        <Route path="/events" element={<Event />} />
+
       </Routes>
     </>
   );
