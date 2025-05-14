@@ -46,6 +46,124 @@ router.post('/', async (req, res) => {
 });
 
 // Register for event (claims a ticket)
+router.post('/:eventId/register', async (req, res) => {
+  try {
+    const { eventId } = req.params;
+    const { userId } = req.body;
+    
+    if (!userId) {
+      return res.status(400).json({ error: 'User ID is required' });
+    }
+
+    // Read all necessary data
+    const events = await readData('events.json');
+    const tickets = await readData('tickets.json');
+    const registrations = await readData('registrations.json') || [];
+    const users = await readData('users.json');
+
+    // Find the event
+    const event = events.find(e => e.id === eventId);
+    if (!event) {
+      return res.status(404).json({ error: 'Event not found' });
+    }
+
+    // Check if user exists
+    const user = users.find(u => u.id === userId);
+    if (!user) {
+      return res.status(404).json({ error: 'User not found' });
+    }
+
+    // Check if user is already registered
+    const existingRegistration = registrations.find(
+      r => r.eventId === eventId && r.userId === userId
+    );
+    
+    if (existingRegistration) {
+      return res.status(400).json({ error: 'User already registered for this event' });
+    }
+
+    // Find an available ticket
+    const availableTicket = tickets.find(
+      t => t.eventId === eventId && !t.isUsed && !t.userId
+    );
+
+    if (!availableTicket) {
+      return res.status(400).json({ error: 'No available tickets for this event' });
+    }
+
+    // Mark ticket as used and assign to user
+    availableTicket.userId = userId;
+    availableTicket.assignedAt = new Date().toISOString();
+    availableTicket.isUsed = true;
+
+    // Create registration record
+    const registration = {
+      id: `reg-${uuidv4()}`,
+      eventId,
+      userId,
+      ticketId: availableTicket.ticketId,
+      registrationDate: new Date().toISOString(),
+      status: 'confirmed'
+    };
+
+    // Update data
+    registrations.push(registration);
+    await writeData('tickets.json', tickets);
+    await writeData('registrations.json', registrations);
+
+    // Send confirmation with registration details
+    res.status(201).json({
+      success: true,
+      message: 'Successfully registered for the event',
+      registration: {
+        ...registration,
+        event: {
+          id: event.id,
+          title: event.title,
+          date: event.date,
+          location: event.location
+        },
+        ticket: {
+          id: availableTicket.ticketId,
+          status: 'confirmed'
+        }
+      }
+    });
+  } catch (err) {
+    console.error('Error registering for event:', err);
+    res.status(500).json({ error: 'Failed to register for event' });
+  }
+});
+
+// Get user's event registrations
+router.get('/user/:userId/registrations', async (req, res) => {
+  try {
+    const { userId } = req.params;
+    const registrations = await readData('registrations.json') || [];
+    const events = await readData('events.json');
+    
+    const userRegistrations = registrations
+      .filter(reg => reg.userId === userId)
+      .map(reg => {
+        const event = events.find(e => e.id === reg.eventId);
+        return {
+          ...reg,
+          event: event ? {
+            id: event.id,
+            title: event.title,
+            date: event.date,
+            location: event.location,
+            image: event.image
+          } : null
+        };
+      });
+    
+    res.json(userRegistrations);
+  } catch (err) {
+    console.error('Error fetching user registrations:', err);
+    res.status(500).json({ error: 'Failed to fetch registrations' });
+  }
+});
 router.post('/:id/register', async (req, res) => {
   try {
     const eventId = req.params.id;
