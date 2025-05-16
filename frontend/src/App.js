@@ -7,6 +7,10 @@ import EventDetail from './pages/EventDetail';
 import Register from './pages/Register';
 import Navbar from './components/Navbar';
 import Event from './pages/Events';
+import AdminPanel from './components/admin/AdminPanel';
+import UserManagement from './components/admin/UserManagement';
+import EventManagement from './components/admin/EventManagement';
+import EventRegistrants from './components/admin/EventRegistrants';
 
 // Protected Route component
 const ProtectedRoute = ({ children }) => {
@@ -50,7 +54,32 @@ function AppWrapper() {
             <Navigate to="/" replace />
           } 
         />
+        <Route
+          path="/admin"
+          element={
+            <ProtectedRoute>
+              <AdminPanel />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/admin/users"
+          element={
+            <ProtectedRoute>
+              <UserManagement />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/admin/events"
+          element={
+            <ProtectedRoute>
+              <EventManagement />
+            </ProtectedRoute>
+          }
+        />
         <Route path="/events/:id" element={<EventDetail />} />
+        <Route path="/admin/events/:eventId/registrants" element={<ProtectedRoute><EventRegistrants /></ProtectedRoute>} />
         <Route path="/events" element={<Event />} />
       </Routes>
     </AuthProvider>

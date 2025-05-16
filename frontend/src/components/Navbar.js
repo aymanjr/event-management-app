@@ -26,6 +26,7 @@ import {
   Menu as MenuIcon,
   Dashboard as DashboardIcon,
   Person as PersonIcon,
+  AdminPanelSettings as AdminIcon,
 } from '@mui/icons-material';
 import GoEventLogo from '../Images/GoEvent Logo.png';
 
@@ -39,6 +40,7 @@ const Navbar = () => {
   const { currentUser, logout, isAuthenticated } = useAuth();
   const isLoginPage = location.pathname === '/login';
   const isRegisterPage = location.pathname === '/register';
+  const isAdminPage = location.pathname.startsWith('/admin');
 
   const handleProfileMenuOpen = (event) => {
     setAnchorEl(event.currentTarget);
@@ -153,7 +155,7 @@ const Navbar = () => {
     >
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <Box sx={{ display: 'flex', alignItems: 'center', flexGrow: 1 }}>
+          <Box sx={{ display: 'flex', alignItems: 'center' }}>
             <Link 
               to="/" 
               style={{ 
@@ -188,45 +190,44 @@ const Navbar = () => {
             </Link>
           </Box>
           
+          {/* Push everything to the right */}
+          <Box sx={{ flexGrow: 1 }} />
+          
           {/* Desktop Navigation */}
           <Box sx={{ 
             display: { xs: 'none', md: 'flex' }, 
             alignItems: 'center', 
-            gap: 1,
+            gap: 2,
             mr: 2
           }}>
-            <Button
-              component={Link}
-              to="/"
-              color="inherit"
-              startIcon={<HomeIcon />}
-              sx={{ 
-                textTransform: 'none', 
-                fontWeight: 500,
-                '&.active': {
-                  color: 'primary.main',
-                  bgcolor: 'rgba(25, 118, 210, 0.08)',
-                },
-              }}
-            >
-              Home
-            </Button>
-            <Button
-              component={Link}
-              to="/events"
-              color="inherit"
-              startIcon={<EventIcon />}
-              sx={{ 
-                textTransform: 'none', 
-                fontWeight: 500,
-                '&.active': {
-                  color: 'primary.main',
-                  bgcolor: 'rgba(25, 118, 210, 0.08)',
-                },
-              }}
-            >
-              Events
-            </Button>
+            {isAuthenticated && (
+              <>
+                <Button
+                  color="inherit"
+                  component={Link}
+                  to="/"
+                  startIcon={<HomeIcon />}
+                >
+                  Home
+                </Button>
+                <Button
+                  color="inherit"
+                  component={Link}
+                  to="/events"
+                  startIcon={<EventIcon />}
+                >
+                  Events
+                </Button>
+                <Button
+                  color="inherit"
+                  component={Link}
+                  to="/admin"
+                  startIcon={<AdminIcon />}
+                >
+                  Admin Panel
+                </Button>
+              </>
+            )}
           </Box>
           
           {/* Auth Buttons */}

@@ -2,9 +2,10 @@ const express = require('express');
 const router = express.Router();
 const { readData, writeData } = require('../utils/storage');
 const { v4: uuidv4 } = require('uuid');
+const auth = require('../middleware/auth');
 
-// Create new event with ticket pool
-router.post('/', async (req, res) => {
+// Create new event with ticket pool (Admin or Organizer)
+router.post('/', auth, async (req, res) => {
   try {
     const events = await readData('events.json');
     const tickets = await readData('tickets.json');
@@ -164,6 +165,7 @@ router.get('/user/:userId/registrations', async (req, res) => {
     res.status(500).json({ error: 'Failed to fetch registrations' });
   }
 });
+
 router.post('/:id/register', async (req, res) => {
   try {
     const eventId = req.params.id;
@@ -287,6 +289,26 @@ router.get('/', async (req, res) => {
   } catch (err) {
     console.error('Error fetching events:', err);
     res.status(500).json({ error: 'Failed to fetch events' });
+  }
+});
+
+// Delete event (Admin only)
+router.delete('/:id', auth, async (req, res) => {
+  try {
+    const events = await readData('events.json');
+    const eventIndex = events.findIndex(e => e.id === req.params.id);
+    
+    if (eventIndex === -1) {
+      return res.status(404).json({ error: 'Event not found' });
+    }
+
+    events.splice(eventIndex, 1);
+    await writeData('events.json', events);
+
+    res.json({ message: 'Event deleted successfully' });
+  } catch (err) {
+    console.error('Error deleting event:', err);
+    res.status(500).json({ error: 'Failed to delete event' });
   }
 });
 

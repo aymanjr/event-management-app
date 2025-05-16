@@ -18,10 +18,7 @@ import {
 } from '@mui/material';
 import { 
   Visibility as VisibilityIcon, 
-  VisibilityOff as VisibilityOffIcon,
-  Google as GoogleIcon,
-  Facebook as FacebookIcon,
-  GitHub as GitHubIcon
+  VisibilityOff as VisibilityOffIcon
 } from '@mui/icons-material';
 import api from '../api';
 
@@ -170,11 +167,6 @@ export default function Register() {
     }
   };
 
-  const handleSocialLogin = (provider) => {
-    // Implement social login redirection
-    window.location.href = `${process.env.REACT_APP_API_URL}/auth/${provider}`;
-  };
-
   return (
     <Container maxWidth="sm" sx={{ py: 8 }}>
       <Paper 
@@ -310,60 +302,6 @@ export default function Register() {
           >
             {isSubmitting ? 'Creating Account...' : 'Create Account'}
           </Button>
-          
-          <Divider sx={{ my: 3 }}>
-            <Typography variant="body2" color="text.secondary">
-              OR CONTINUE WITH
-            </Typography>
-          </Divider>
-          
-          <Grid container spacing={2}>
-            <Grid item xs={4}>
-              <Button
-                fullWidth
-                variant="outlined"
-                startIcon={<GoogleIcon />}
-                onClick={() => handleSocialLogin('google')}
-                sx={{
-                  py: 1.5,
-                  borderRadius: 2,
-                  textTransform: 'none',
-                }}
-              >
-                Google
-              </Button>
-            </Grid>
-            <Grid item xs={4}>
-              <Button
-                fullWidth
-                variant="outlined"
-                startIcon={<FacebookIcon />}
-                onClick={() => handleSocialLogin('facebook')}
-                sx={{
-                  py: 1.5,
-                  borderRadius: 2,
-                  textTransform: 'none',
-                }}
-              >
-                Facebook
-              </Button>
-            </Grid>
-            <Grid item xs={4}>
-              <Button
-                fullWidth
-                variant="outlined"
-                startIcon={<GitHubIcon />}
-                onClick={() => handleSocialLogin('github')}
-                sx={{
-                  py: 1.5,
-                  borderRadius: 2,
-                  textTransform: 'none',
-                }}
-              >
-                GitHub
-              </Button>
-            </Grid>
-          </Grid>
           
           <Box textAlign="center" mt={3}>
             <Typography variant="body2" color="text.secondary">
