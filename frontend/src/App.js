@@ -6,6 +6,7 @@ import EventDetail from './pages/EventDetail';
 import Register from './pages/Register';
 import Navbar from './components/Navbar';
 import Event from './pages/Events';
+import CreateEvent from './pages/CreateEvent';
 
 function AppWrapper() {
   const location = useLocation();
@@ -21,6 +22,7 @@ function AppWrapper() {
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/events/:id" element={<EventDetail />} />
         <Route path="/events" element={<Event />} />
+        <Route path="/create-event" element={<CreateEvent />} />
 
       </Routes>
     </>

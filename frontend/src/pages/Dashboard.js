@@ -64,17 +64,27 @@ export default function Dashboard() {
   return (
     <Container maxWidth="md">
       <Paper elevation={3} sx={{ p: 4, mt: 4 }}>
-        <Box sx={{ display: 'flex', justifyContent: 'space-between', mb: 4 }}>
+        <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 4 }}>
           <Typography variant="h4" component="h1">
             Welcome, {firstName || 'User'}!
           </Typography>
-          <Button 
-            variant="outlined" 
-            color="error"
-            onClick={handleLogout}
-          >
-            Logout
-          </Button>
+          <Box>
+            <Button 
+              variant="contained" 
+              color="primary"
+              onClick={() => navigate('/create-event')}
+              sx={{ mr: 2 }}
+            >
+              Create Event
+            </Button>
+            <Button 
+              variant="outlined" 
+              color="error"
+              onClick={handleLogout}
+            >
+              Logout
+            </Button>
+          </Box>
         </Box>
 
         <Typography variant="h5" component="h2" sx={{ mb: 2 }}>

@@ -37,5 +37,44 @@
     "price": 989,
     "image": "https://example.com/ai-summit.jpg",
     "createdAt": "2025-05-14T22:14:23.784Z"
+  },
+  {
+    "id": "evt-17e291e6-7e0f-454b-afc0-ce985e37c6fd",
+    "title": "TECH 2026",
+    "description": "Annual technology summit with top industry speakers",
+    "date": "2025-09-15",
+    "location": "Convention Center, San Francisco",
+    "organizerId": "usr-1745066613217",
+    "capacity": 20,
+    "isPrivate": false,
+    "price": 299,
+    "image": "https://example.com/tech-conf.jpg",
+    "createdAt": "2025-05-16T23:34:06.571Z"
+  },
+  {
+    "id": "evt-212676e9-a36c-4207-a652-ff155119f7f1",
+    "title": "test",
+    "description": "test",
+    "date": "test",
+    "location": "test",
+    "organizerId": "usr-1746198313520",
+    "capacity": null,
+    "isPrivate": false,
+    "price": 50,
+    "image": "test",
+    "createdAt": "2025-05-16T23:42:36.309Z"
+  },
+  {
+    "id": "evt-29476c26-7db2-4be2-8fd8-b8e5fab7bb8d",
+    "title": "test",
+    "description": "test",
+    "date": "test",
+    "location": "test",
+    "organizerId": "usr-1746198313520",
+    "capacity": 20,
+    "isPrivate": false,
+    "price": 200,
+    "image": "asdasd",
+    "createdAt": "2025-05-16T23:44:35.944Z"
   }
 ]
