@@ -14,7 +14,43 @@
     "password": "adminadmin",
     "firstName": "admin",
     "lastName": "admin",
-    "role": "participant",
+    "role": "admin",
     "createdAt": "2025-05-02T15:05:13.520Z"
+  },
+  {
+    "id": "usr-1746198313521",
+    "email": "organizer@admin.com",
+    "password": "useruser",
+    "firstName": "organizer",
+    "lastName": "organizer",
+    "role": "organizer",
+    "createdAt": "2025-05-02T15:05:13.520Z"
+  },
+  {
+    "id": "usr-1747453211542",
+    "email": "admin1@admin.com",
+    "password": "aaAA112.",
+    "firstName": "Amine",
+    "lastName": "Houmadi",
+    "role": "participant",
+    "createdAt": "2025-05-17T03:40:11.542Z"
+  },
+  {
+    "id": "usr-1747453275743",
+    "email": "aymanjarmou@email.com",
+    "password": "Ayman.2019",
+    "firstName": "Ayman",
+    "lastName": "Jarmoun",
+    "role": "participant",
+    "createdAt": "2025-05-17T03:41:15.743Z"
+  },
+  {
+    "id": "usr-1747479001112",
+    "email": "aminehamadi80@gmail.com",
+    "password": "q!uz9Z#BQ2vmMKZ",
+    "firstName": "Amine",
+    "lastName": "Houmadi",
+    "role": "participant",
+    "createdAt": "2025-05-17T10:50:01.112Z"
   }
 ]

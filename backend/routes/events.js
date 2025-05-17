@@ -339,4 +339,35 @@ router.get('/:id', async (req, res) => {
   }
 });
 
+module.exports = router;nt-size: 15px; color: #444;">Please bring your Ticket ID to the event for check-in.</p>
+            <div style="margin-top: 32px; font-size: 13px; color: #aaa;">Thank you for registering!<br/>Event Team</div>
+          </div>
+        </div>
+      `;
+      const emailText = `${message || `This is a reminder for the event: ${event.title}.`}
+
+Date: ${event.date}
+Location: ${event.location}
+Ticket ID: ${ticketId}
+`;
+      try {
+        await sendMail({
+          to: user.email,
+          subject: emailSubject,
+          text: emailText,
+          html,
+        });
+        results.push({ email: user.email, status: 'sent' });
+      } catch (err) {
+        results.push({ email: user.email, status: 'failed', error: err.message });
+      }
+    }
+
+    res.json({ message: 'Reminders sent', results });
+  } catch (err) {
+    console.error('Error sending reminders:', err);
+    res.status(500).json({ error: 'Failed to send reminders' });
+  }
+});
+
 module.exports = router;

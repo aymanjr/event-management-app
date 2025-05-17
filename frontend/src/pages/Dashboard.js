@@ -22,6 +22,7 @@ import {
 } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import { CheckCircle, Cancel, Event as EventIcon, Person, Logout } from '@mui/icons-material';
+import DashboardQRCode from '../components/DashboardQRCode';
 
 export default function Dashboard() {
   const [registrations, setRegistrations] = useState([]);
@@ -135,13 +136,10 @@ export default function Dashboard() {
                 }
               }}
             >
-              Welcome, {firstName || 'User'}!
-            </Typography>
-            <Typography variant="subtitle1" color="text.secondary">
               Here's your event dashboard
             </Typography>
           </Box>
-          <Button 
+          {/* <Button 
             variant="contained"
             color="error"
             onClick={handleLogout}
@@ -162,7 +160,7 @@ export default function Dashboard() {
             }}
           >
             Logout
-          </Button>
+          </Button> */}
         </Box>
 
         <Grid container spacing={3} sx={{ mb: 4 }}>
@@ -226,6 +224,7 @@ export default function Dashboard() {
         </Grid>
 
         <StyledPaper elevation={0}>
+  
           <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 3 }}>
             <Typography variant="h5" component="h2" sx={{ 
               color: '#1a237e',
@@ -250,103 +249,72 @@ export default function Dashboard() {
             <Typography color="error">{error}</Typography>
           ) : registrations.length > 0 ? (
             <List component="div" sx={{ width: '100%' }}>
-              {registrations.map((reg, index) => (
-                <Box component="div" key={reg.id}>
-                  <ListItem 
-                    alignItems="flex-start" 
-                    component="div"
-                    sx={{
-                      p: 3,
-                      mb: 2,
-                      borderRadius: 2,
-                      backgroundColor: 'rgba(0, 0, 0, 0.01)',
-                      transition: 'all 0.3s ease',
-                      '&:hover': {
-                        backgroundColor: 'rgba(0, 0, 0, 0.02)',
-                        transform: 'translateX(4px)'
-                      }
-                    }}
-                  >
-                    <ListItemText
-                      primary={
-                        <Typography 
-                          variant="h6" 
-                          component="div"
-                          sx={{ 
-                            fontWeight: 600,
-                            color: '#1a237e',
-                            mb: 0.5
-                          }}
-                        >
-                          {reg.event?.title || 'Unknown Event'}
-                        </Typography>
-                      }
-                      secondary={
-                        <Box component="div">
-                          <Typography 
-                            component="span" 
-                            display="block" 
-                            variant="body2"
-                            sx={{ 
-                              color: 'text.secondary',
-                              mb: 0.5
-                            }}
-                          >
-                            <EventIcon fontSize="small" sx={{ verticalAlign: 'middle', mr: 1, fontSize: '1rem' }} />
-                            {reg.event?.date ? new Date(reg.event.date).toLocaleDateString('en-US', {
-                              year: 'numeric',
-                              month: 'long',
-                              day: 'numeric',
-                              hour: '2-digit',
-                              minute: '2-digit'
-                            }) : 'No date'}
-                          </Typography>
-                          <Typography 
-                            component="span" 
-                            display="block" 
-                            variant="body2"
-                            sx={{ color: 'text.secondary', mb: 1 }}
-                          >
-                            📍 {reg.event?.location || 'No location specified'}
-                          </Typography>
-                          <Chip 
-                            label={`Ticket: ${reg.ticketId}`}
-                            size="small"
-                            variant="outlined"
-                            color="primary"
-                            sx={{ 
-                              mr: 1,
-                              fontWeight: 500,
-                              borderColor: '#5c6bc0',
-                              color: '#5c6bc0',
-                              backgroundColor: 'rgba(92, 107, 192, 0.08)'
-                            }}
-                          />
-                          <Chip 
-                            icon={reg.attended ? <CheckCircle fontSize="small" /> : <Cancel fontSize="small" />}
-                            label={reg.attended ? 'Attended' : 'Upcoming'}
-                            color={reg.attended ? 'success' : 'primary'}
-                            size="small"
-                            sx={{ 
-                              mt: 1,
-                              fontWeight: 500,
-                              '& .MuiChip-icon': {
-                                color: reg.attended ? theme.palette.success.main : theme.palette.primary.main
-                              }
-                            }}
-                          />
-                          <Chip 
-                            label={`$${reg.event?.price || 0}`} 
-                            color="primary" 
-                            size="small"
-                          />
-                        </Box>
-                      }
-                      sx={{ m: 0 }}      
-                    />
-                  </ListItem>
-                  <Divider component="div" />
-                </Box>
+              {registrations.map((reg) => (
+                <ListItem key={reg.id} alignItems="flex-start" component="div"
+                  sx={{
+                    p: 3,
+                    mb: 2,
+                    borderRadius: 2,
+                    backgroundColor: 'rgba(0, 0, 0, 0.01)',
+                    transition: 'all 0.3s ease',
+                    '&:hover': {
+                      backgroundColor: 'rgba(0, 0, 0, 0.02)',
+                      transform: 'translateX(4px)'
+                    }
+                  }}
+                >
+                  <Box sx={{ display: 'flex', alignItems: 'center', width: '100%' }}>
+                    <Box sx={{ flex: 1 }}>
+                      <Typography 
+                        variant="h6" 
+                        component="div"
+                        sx={{ 
+                          fontWeight: 600,
+                          color: '#1a237e',
+                          mb: 0.5
+                        }}
+                      >
+                        {reg.event?.title || 'Unknown Event'}
+                      </Typography>
+                      <Typography 
+                        component="span" 
+                        display="block" 
+                        variant="body2"
+                        sx={{ 
+                          color: 'text.secondary',
+                          mb: 0.5
+                        }}
+                      >
+                        <EventIcon fontSize="small" sx={{ verticalAlign: 'middle', mr: 1, fontSize: '1rem' }} />
+                        {reg.event?.date ? new Date(reg.event.date).toLocaleDateString('en-US', {
+                          year: 'numeric',
+                          month: 'long',
+                          day: 'numeric',
+                          hour: '2-digit',
+                          minute: '2-digit'
+                        }) : 'No date'}
+                      </Typography>
+                      <Typography 
+                        component="span" 
+                        display="block" 
+                        variant="body2"
+                        sx={{ color: 'text.secondary', mb: 1 }}
+                      >
+                        📍 {reg.event?.location || 'No location specified'}
+                      </Typography>
+                    </Box>
+                    <Box sx={{ ml: 3 }}>
+                      <DashboardQRCode 
+  ticketId={reg.ticketId}
+  eventTitle={reg.event?.title}
+  eventDate={reg.event?.date ? new Date(reg.event.date).toLocaleDateString('en-US', {
+    year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit'
+  }) : ''}
+  eventLocation={reg.event?.location}
+/>
+                    </Box>
+                  </Box>
+                </ListItem>
               ))}
             </List>
           ) : (

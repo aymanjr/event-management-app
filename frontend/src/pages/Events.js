@@ -8,6 +8,7 @@ const Events = () => {
   const [events, setEvents] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [filter, setFilter] = useState('');
 
   useEffect(() => {
     const fetchEvents = async () => {
@@ -87,8 +88,26 @@ const Events = () => {
           </Alert>
         )}
 
+        <Box sx={{ mb: 3, maxWidth: 400 }}>
+          <input
+            type="text"
+            placeholder="Filter by title..."
+            value={filter}
+            onChange={e => setFilter(e.target.value)}
+            style={{
+              width: '100%',
+              padding: '10px',
+              borderRadius: '6px',
+              border: '1px solid #bdbdbd',
+              fontSize: '16px',
+              marginBottom: '10px',
+              outline: 'none',
+              boxSizing: 'border-box'
+            }}
+          />
+        </Box>
         <PagePaper elevation={0}>
-          {events.length === 0 ? (
+          {events.filter(event => event.title.toLowerCase().includes(filter.toLowerCase())).length === 0 ? (
             <Box sx={{ 
               textAlign: 'center', 
               py: 8,
@@ -103,7 +122,7 @@ const Events = () => {
             </Box>
           ) : (
             <Grid container spacing={4}>
-              {events.map((event) => (
+              {events.filter(event => event.title.toLowerCase().includes(filter.toLowerCase())).map((event) => (
                 <Grid item key={event.id} xs={12} sm={6} lg={4}>
                   <EventCard event={event} />
                 </Grid>

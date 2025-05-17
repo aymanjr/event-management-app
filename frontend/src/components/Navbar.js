@@ -69,7 +69,7 @@ const Navbar = () => {
     if (isAuthenticated()) {
       return (
         <>
-          <Button
+          {/* <Button
             component={Link}
             to="/dashboard"
             color="inherit"
@@ -81,6 +81,20 @@ const Navbar = () => {
             }}
           >
             Dashboard
+          </Button> */}
+          <Button
+            component={Link}
+            to="/admin/events"
+            color="inherit"
+            startIcon={<EventIcon />}
+            sx={{
+              textTransform: 'none',
+              fontWeight: 500,
+              display: { xs: 'none', md: 'flex' },
+              ml: 2
+            }}
+          >
+            Events Management
           </Button>
           <IconButton
             size="large"

@@ -21,6 +21,8 @@ import {
 import { Add as AddIcon, Edit as EditIcon, Delete as DeleteIcon, People as PeopleIcon } from '@mui/icons-material';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import AddEventDialog from './AddEventDialog';
+import EditEventDialog from './EditEventDialog';
 
 const EventManagement = () => {
   const navigate = useNavigate();
@@ -33,6 +35,9 @@ const EventManagement = () => {
     location: '',
     capacity: '',
   });
+  const [openAddEventDialog, setOpenAddEventDialog] = useState(false);
+  const [editEvent, setEditEvent] = useState(null);
+  const [openEditEventDialog, setOpenEditEventDialog] = useState(false);
 
   useEffect(() => {
     fetchEvents();
@@ -94,10 +99,10 @@ const EventManagement = () => {
         variant="contained"
         color="primary"
         startIcon={<AddIcon />}
-        onClick={handleOpenDialog}
-        sx={{ mb: 3 }}
+        onClick={() => setOpenAddEventDialog(true)}
+        sx={{ mb: 3, mr: 2 }}
       >
-        Add New Event
+        Add Event
       </Button>
       <TableContainer component={Paper}>
         <Table>
@@ -128,7 +133,11 @@ const EventManagement = () => {
                     >
                       <PeopleIcon />
                     </IconButton>
-                    <IconButton color="primary" title="Edit Event">
+                    <IconButton 
+                      color="primary" 
+                      title="Edit Event"
+                      onClick={() => { setEditEvent(event); setOpenEditEventDialog(true); }}
+                    >
                       <EditIcon />
                     </IconButton>
                     <IconButton 
@@ -146,75 +155,18 @@ const EventManagement = () => {
         </Table>
       </TableContainer>
 
-      <Dialog open={openDialog} onClose={handleCloseDialog}>
-        <DialogTitle>Add New Event</DialogTitle>
-        <form onSubmit={handleSubmit}>
-          <DialogContent>
-            <TextField
-              autoFocus
-              margin="dense"
-              name="title"
-              label="Title"
-              type="text"
-              fullWidth
-              value={formData.title}
-              onChange={handleInputChange}
-              required
-            />
-            <TextField
-              margin="dense"
-              name="description"
-              label="Description"
-              type="text"
-              fullWidth
-              multiline
-              rows={4}
-              value={formData.description}
-              onChange={handleInputChange}
-              required
-            />
-            <TextField
-              margin="dense"
-              name="date"
-              label="Date"
-              type="datetime-local"
-              fullWidth
-              value={formData.date}
-              onChange={handleInputChange}
-              required
-              InputLabelProps={{
-                shrink: true,
-              }}
-            />
-            <TextField
-              margin="dense"
-              name="location"
-              label="Location"
-              type="text"
-              fullWidth
-              value={formData.location}
-              onChange={handleInputChange}
-              required
-            />
-            <TextField
-              margin="dense"
-              name="capacity"
-              label="Capacity"
-              type="number"
-              fullWidth
-              value={formData.capacity}
-              onChange={handleInputChange}
-              required
-            />
-          </DialogContent>
-          <DialogActions>
-            <Button onClick={handleCloseDialog}>Cancel</Button>
-            <Button type="submit" variant="contained" color="primary">
-              Add Event
-            </Button>
-          </DialogActions>
-        </form>
-      </Dialog>
+      {/* Old dialog removed, now using AddEventDialog */}
+      <AddEventDialog 
+        open={openAddEventDialog} 
+        onClose={() => setOpenAddEventDialog(false)} 
+        onEventAdded={fetchEvents}
+      />
+      <EditEventDialog
+        open={openEditEventDialog}
+        onClose={() => setOpenEditEventDialog(false)}
+        event={editEvent}
+        onEventUpdated={fetchEvents}
+      />
     </Container>
   );
 };

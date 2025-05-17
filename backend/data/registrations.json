@@ -37,5 +37,117 @@
     "ticketId": "TCK-evt-7504c040-4ff0-4d98-b152-5691be07ac10-1-3d59ce9e",
     "registeredAt": "2025-05-14T22:20:43.457Z",
     "attended": false
+  },
+  {
+    "id": "reg-4a3cc914-c23f-429f-a471-c3367b74eeeb",
+    "eventId": "evt-7504c040-4ff0-4d98-b152-5691be07ac10",
+    "userId": "usr-1746198313521",
+    "ticketId": "TCK-evt-7504c040-4ff0-4d98-b152-5691be07ac10-2-06964727",
+    "registrationDate": "2025-05-17T02:32:54.981Z",
+    "status": "confirmed"
+  },
+  {
+    "id": "reg-35c644f6-c066-46ce-9829-4da7ea2dc6fc",
+    "eventId": "evt-7504c040-4ff0-4d98-b152-5691be07ac10",
+    "userId": "usr-1747453275743",
+    "ticketId": "TCK-evt-7504c040-4ff0-4d98-b152-5691be07ac10-3-e5711bd6",
+    "registrationDate": "2025-05-17T03:42:15.658Z",
+    "status": "confirmed"
+  },
+  {
+    "id": "reg-ec185229-25a6-4718-a6b1-7e6ebcb43802",
+    "eventId": "evt-7504c040-4ff0-4d98-b152-5691be07ac10",
+    "userId": "usr-1747455660464",
+    "ticketId": "TCK-evt-7504c040-4ff0-4d98-b152-5691be07ac10-4-02879eac",
+    "registrationDate": "2025-05-17T04:22:25.906Z",
+    "status": "confirmed"
+  },
+  {
+    "id": "reg-774c2d6b-69d1-4828-9d4b-4831c7160fdd",
+    "eventId": "evt-7504c040-4ff0-4d98-b152-5691be07ac10",
+    "userId": "usr-1747456868319",
+    "ticketId": "TCK-evt-7504c040-4ff0-4d98-b152-5691be07ac10-5-a1e43b29",
+    "registrationDate": "2025-05-17T04:42:12.045Z",
+    "status": "confirmed"
+  },
+  {
+    "id": "reg-617bc238-2b45-4f42-b1df-a2f573866af2",
+    "eventId": "evt-7504c040-4ff0-4d98-b152-5691be07ac10",
+    "userId": "usr-1747471395436",
+    "ticketId": "TCK-evt-7504c040-4ff0-4d98-b152-5691be07ac10-6-74d94360",
+    "registrationDate": "2025-05-17T08:45:10.873Z",
+    "status": "confirmed"
+  },
+  {
+    "id": "reg-ec4f66a0-8bf7-4043-bf5b-fa71b65638ed",
+    "eventId": "evt-1745068269126",
+    "userId": "usr-1747471395436",
+    "ticketId": "TCK-evt-1745068269126-1-e5f6a7b8",
+    "registrationDate": "2025-05-17T09:28:43.753Z",
+    "status": "confirmed"
+  },
+  {
+    "id": "reg-085ac3b7-816b-4cd7-b2c5-db8ec9a92e81",
+    "eventId": "evt-1745068269126",
+    "userId": "usr-1747474452027",
+    "ticketId": "TCK-evt-1745068269126-2-c1a5c3e1",
+    "registrationDate": "2025-05-17T09:45:06.396Z",
+    "status": "confirmed"
+  },
+  {
+    "id": "reg-8b223d55-b6f4-4337-bb26-9bed88f8cd34",
+    "eventId": "evt-1745068269126",
+    "userId": "usr-1747475429328",
+    "ticketId": "TCK-evt-1745068269126-3-0a3b4f22",
+    "registrationDate": "2025-05-17T09:51:43.185Z",
+    "status": "confirmed"
+  },
+  {
+    "id": "reg-48a895c8-2c52-4163-b3b0-fed8389196c7",
+    "eventId": "evt-582b98f4-45a1-4a5a-91f7-cb761a19b611",
+    "userId": "usr-1747475429328",
+    "ticketId": "TCK-evt-582b98f4-45a1-4a5a-91f7-cb761a19b611-0-0adbe0c4",
+    "registrationDate": "2025-05-17T09:51:48.236Z",
+    "status": "confirmed"
+  },
+  {
+    "id": "reg-4cde2085-7769-453c-844e-6c3b961de75f",
+    "eventId": "evt-ae7eeb24-8402-48f0-a6e2-e67a5d9c52db",
+    "userId": "usr-1747475662700",
+    "ticketId": "TCK-evt-ae7eeb24-8402-48f0-a6e2-e67a5d9c52db-0-1a3e6f4b",
+    "registrationDate": "2025-05-17T09:54:40.391Z",
+    "status": "confirmed"
+  },
+  {
+    "id": "reg-73174c4a-023f-4c31-b07f-92ae73862f4b",
+    "eventId": "evt-7504c040-4ff0-4d98-b152-5691be07ac10",
+    "userId": "usr-1747475662700",
+    "ticketId": "TCK-evt-7504c040-4ff0-4d98-b152-5691be07ac10-7-1591679f",
+    "registrationDate": "2025-05-17T09:54:46.419Z",
+    "status": "confirmed"
+  },
+  {
+    "id": "reg-f546e1fd-f96c-44b7-9992-3d267146c673",
+    "eventId": "evt-35a8f1b1-51c2-4db6-9c6b-5bb3c9b5de5e",
+    "userId": "usr-1747475662700",
+    "ticketId": "TCK-evt-35a8f1b1-51c2-4db6-9c6b-5bb3c9b5de5e-0-3a4d7f81",
+    "registrationDate": "2025-05-17T10:12:16.140Z",
+    "status": "confirmed"
+  },
+  {
+    "id": "reg-f2ea3c2d-8085-4d99-a435-348e02968ba3",
+    "eventId": "evt-582b98f4-45a1-4a5a-91f7-cb761a19b611",
+    "userId": "usr-1747479001112",
+    "ticketId": "TCK-evt-582b98f4-45a1-4a5a-91f7-cb761a19b611-1-9e6f81a2",
+    "registrationDate": "2025-05-17T10:50:30.463Z",
+    "status": "confirmed"
+  },
+  {
+    "id": "reg-4053f2ae-a8bf-481b-8c7b-e09e598b8c13",
+    "eventId": "evt-35a8f1b1-51c2-4db6-9c6b-5bb3c9b5de5e",
+    "userId": "usr-1747479001112",
+    "ticketId": "TCK-evt-35a8f1b1-51c2-4db6-9c6b-5bb3c9b5de5e-1-9ef0452c",
+    "registrationDate": "2025-05-17T10:50:35.475Z",
+    "status": "confirmed"
   }
 ]

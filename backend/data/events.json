@@ -37,5 +37,70 @@
     "price": 989,
     "image": "https://example.com/ai-summit.jpg",
     "createdAt": "2025-05-14T22:14:23.784Z"
+  },
+  {
+    "id": "evt-582b98f4-45a1-4a5a-91f7-cb761a19b611",
+    "title": "Future of Tech 2025",
+    "description": "Exploring innovations shaping the future of technology",
+    "date": "2025-07-20",
+    "location": "Los Angeles Tech Arena",
+    "organizerId": "usr-1745066613217",
+    "capacity": 150,
+    "isPrivate": false,
+    "price": 120,
+    "image": "https://example.com/future-tech.jpg",
+    "createdAt": "2025-05-17T09:21:00.000Z"
+  },
+  {
+    "id": "evt-9cb1ad3d-703e-47b7-82df-f6c44b2b1b72",
+    "title": "Women in AI Forum",
+    "description": "A forum to discuss diversity and innovation in AI",
+    "date": "2025-08-12",
+    "location": "Seattle Innovation Hub",
+    "organizerId": "usr-1745066613217",
+    "capacity": 80,
+    "isPrivate": true,
+    "price": 95,
+    "image": "https://example.com/women-in-ai.jpg",
+    "createdAt": "2025-05-17T09:22:00.000Z"
+  },
+  {
+    "id": "evt-ae7eeb24-8402-48f0-a6e2-e67a5d9c52db",
+    "title": "Cloud & DevOps Expo",
+    "description": "Expo showcasing the latest in Cloud and DevOps tools",
+    "date": "2025-09-05",
+    "location": "New York Expo Center",
+    "organizerId": "usr-1745066613217",
+    "capacity": 300,
+    "isPrivate": false,
+    "price": 299,
+    "image": "https://example.com/cloud-devops.jpg",
+    "createdAt": "2025-05-17T09:23:00.000Z"
+  },
+  {
+    "id": "evt-35a8f1b1-51c2-4db6-9c6b-5bb3c9b5de5e",
+    "title": "Green Tech Symposium",
+    "description": "Exploring technology’s role in environmental sustainability",
+    "date": "2025-10-18",
+    "location": "Chicago Sustainability Center",
+    "organizerId": "usr-1745066613217",
+    "capacity": 180,
+    "isPrivate": false,
+    "price": 75,
+    "image": "https://example.com/green-tech.jpg",
+    "createdAt": "2025-05-17T09:24:00.000Z"
+  },
+  {
+    "id": "evt-d3f5e0c0-bb13-44f1-89b4-8e5a9bfa4370",
+    "title": "Cybersecurity World 2025",
+    "description": "Global gathering of cybersecurity professionals",
+    "date": "2025-11-10",
+    "location": "Las Vegas Convention Center",
+    "organizerId": "usr-1745066613217",
+    "capacity": 400,
+    "isPrivate": true,
+    "price": 450,
+    "image": "https://example.com/cybersecurity-world.jpg",
+    "createdAt": "2025-05-17T09:25:00.000Z"
   }
 ]
